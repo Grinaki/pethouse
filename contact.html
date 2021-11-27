@@ -22,7 +22,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Наши питомцы
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -51,8 +51,54 @@
 
 <div class="container">
 
-  Contacts
+  <form method="POST" action="https://yandex.ru" >
+   <div class="row">
+
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Ф.И.О</label>
+      <input type="text" class="form-control" id="fio" placeholder="Как к вам обряшаться">
+    </div>
+   </div>
+
+
+   <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="email" placeholder="ваш email">
+  </div>
+ </div>
+
+
+
+<button type="submit" class="btn btn-info">Отправить</button>
+
+  </form>
+  
 </div>
+
+<div class="toolbar-container"></div>
+<div id="editor"></div>
+
+<script src="ckeditor5/ckeditor.js"></script>
+
+<script>
+	DecoupledEditor
+		.create( document.querySelector( '#editor' ), {
+			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+		} )
+		.then( editor => {
+			const toolbarContainer = document.querySelector( 'main .toolbar-container' );
+
+			toolbarContainer.prepend( editor.ui.view.toolbar.element );
+
+			window.editor = editor;
+		} )
+		.catch( err => {
+			console.error( err.stack );
+		} );
+</script>
+
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
