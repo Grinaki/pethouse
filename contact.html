@@ -14,7 +14,7 @@
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">PetHouse</a>
+              <a class="navbar-brand" href="index.html">PetHouse</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -52,13 +52,13 @@
 <div class="container">
 
   <form method="POST" action="https://yandex.ru" >
-   <div class="row">
+    <div class="row">
 
 
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Ф.И.О</label>
-      <input type="text" class="form-control" id="fio" placeholder="Как к вам обряшаться">
-    </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Ф.И.О</label>
+             <input type="text" class="form-control" id="fio" placeholder="Как к вам обряшаться">
+        </div>
    </div>
 
 
@@ -66,37 +66,36 @@
     <label for="exampleFormControlInput1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="email" placeholder="ваш email">
   </div>
- </div>
+ 
 
-
+ <script src="ckeditor5/ckeditor.js"></script>
+ <div class="document-editor">
+  <div id="toolbar-contanier"></div>
+  <div class="content-contanier" ></div>
+  <div id="editor"></div>
+  </div>
+ <script>
+   DecoupledEditor
+     .create( document.querySelector( '#editor' ), {
+       // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+     } )
+     .then( editor => {
+       const toolbarContainer = document.querySelector( '#toolbar-contanier' );
+ 
+       toolbarContainer.appendChild( editor.ui.view.toolbar.element );
+ 
+       window.editor = editor;
+     } )
+     .catch( err => {
+       console.error( err.stack );
+     } );
+ </script>
 
 <button type="submit" class="btn btn-info">Отправить</button>
 
   </form>
-  
 </div>
 
-<div class="toolbar-container"></div>
-<div id="editor"></div>
-
-<script src="ckeditor5/ckeditor.js"></script>
-
-<script>
-	DecoupledEditor
-		.create( document.querySelector( '#editor' ), {
-			// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
-		} )
-		.then( editor => {
-			const toolbarContainer = document.querySelector( 'main .toolbar-container' );
-
-			toolbarContainer.prepend( editor.ui.view.toolbar.element );
-
-			window.editor = editor;
-		} )
-		.catch( err => {
-			console.error( err.stack );
-		} );
-</script>
 
 
 
